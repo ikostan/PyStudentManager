@@ -6,7 +6,7 @@ class Student(Citizen):
 
     def __init__(self, kwargs):
         # print('Student constructor #1 called')
-        # first_name: str, last_name: str, gender: str, id: int
+        # first_name: str, last_name: str, gender: str, personal_id: int
         super().__init__(kwargs.get('_first_name'),
                          kwargs.get('_last_name'),
                          kwargs.get('_gender'),

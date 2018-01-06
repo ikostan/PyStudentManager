@@ -5,9 +5,9 @@ from human import Human
 class Citizen(Human):
     def __init__(self, first_name: str, last_name: str, gender: str, personal_id: int):
         super().__init__(first_name, last_name, gender)
-        self._personal_id = self.set_id(personal_id)
+        self._personal_id = self.set_personal_id(personal_id)
 
-    def set_id(self, personal_id: int):
+    def set_personal_id(self, personal_id: int):
         if personal_id.isnumeric():
             if len(str(personal_id)) == 9:
                 return int(personal_id)
@@ -16,7 +16,7 @@ class Citizen(Human):
         else:
             raise TypeError("ERROR: id must contain 9 digits: {}".format(personal_id))
 
-    def get_id(self):
+    def get_personal_id(self):
         return self._personal_id
 
     def get_keys(self):
