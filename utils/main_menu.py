@@ -1,7 +1,7 @@
 #!/usr/div/env python3
 from student import Student
 import time
-from file_manager import FileManager
+from utils.file_manager import FileManager
 
 
 class Menu:

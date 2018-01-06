@@ -1,6 +1,6 @@
 #!/usr/div/env python3
-from main_menu import Menu
-from file_manager import FileManager
+from utils.main_menu import Menu
+from utils.file_manager import FileManager
 
 
 def main():
@@ -8,8 +8,11 @@ def main():
 
     students = FileManager.read_file('students.txt')
 
+    '''
+    # DEBUG:
     for std in students:
         print(std)
+    '''
 
     menu = Menu(students)
     menu.main_menu()
