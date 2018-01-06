@@ -2,7 +2,7 @@
 
 
 class Human:
-    def __init__(self, first_name: str, last_name: str, gender: str, id: int):
+    def __init__(self, first_name: str, last_name: str, gender: str):
         self._first_name = self.set_name(first_name)
         self._last_name = self.set_name(last_name)
         self._gender = self.set_gender(gender)

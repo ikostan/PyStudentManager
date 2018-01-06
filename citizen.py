@@ -3,24 +3,25 @@ from human import Human
 
 
 class Citizen(Human):
-    def __init__(self, first_name: str, last_name: str, gender: str, id: int):
+    def __init__(self, first_name: str, last_name: str, gender: str, personal_id: int):
         super().__init__(first_name, last_name, gender)
-        self._id = self.set_id(id)
+        self._personal_id = self.set_id(personal_id)
 
-    def set_id(self, id: int):
-        if id.isnumeric():
-            if len(str(id)) == 9:
-                return int(id)
+    def set_id(self, personal_id: int):
+        if personal_id.isnumeric():
+            if len(str(personal_id)) == 9:
+                return int(personal_id)
             else:
-                raise TypeError("ERROR: id must contain 9 digits: {}".format(id))
+                raise TypeError("ERROR: id must contain 9 digits: {}".format(personal_id))
         else:
-            raise TypeError("ERROR: id must contain 9 digits: {}".format(id))
+            raise TypeError("ERROR: id must contain 9 digits: {}".format(personal_id))
 
     def get_id(self):
-        return self._id
+        return self._personal_id
 
     def get_keys(self):
-        #print(self.__dict__)
+        # DEBUG:
+        # print(self.__dict__)
         return self.__dict__.keys()
 
     def get_values(self):
