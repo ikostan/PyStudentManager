@@ -1,5 +1,5 @@
 #!/usr/div/env python3
-from human import Human
+from classes.human import Human
 
 
 class Citizen(Human):

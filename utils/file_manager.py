@@ -1,5 +1,5 @@
 #!/usr/div/env python3
-from student import Student
+from classes.student import Student
 
 
 class FileManager:

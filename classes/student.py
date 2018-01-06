@@ -1,5 +1,5 @@
 #!/usr/div/env python3
-from citizen import Citizen
+from classes.citizen import Citizen
 
 
 class Student(Citizen):
