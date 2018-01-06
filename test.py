@@ -7,11 +7,6 @@ def main():
     print("Testing program: Student registration\n")
 
     students = FileManager.read_file(r'files\students.txt')
-
-    # DEBUG:
-    for std in students:
-        print(std)
-
     menu = Menu(students)
     menu.main_menu()
 

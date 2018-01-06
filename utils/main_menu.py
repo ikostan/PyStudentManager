@@ -72,10 +72,11 @@ class Menu:
                 student_id = None
             else:
                 try:
-                    student_id = int(student_id)
+                    # student_id = int(student_id)
                     is_doubled = False
                     for std in self._students:
                         # print(std)
+                        # DEBUG:
                         # print("{} <> {}".format(std.get_param('_student_id'), student_id))
                         if int(std.get_param('_student_id')) == student_id:
                             print("ERROR: student id is already exists: {}. Please reenter.".format(student_id))
@@ -97,11 +98,12 @@ class Menu:
                 personal_id = None
             else:
                 try:
-                    personal_id = int(personal_id)
+                    # personal_id = int(personal_id)
                     is_doubled = False
                     for std in self._students:
                         # print(std)
-                        # print("{} <> {}".format(std.get_param('_student_id'), student_id))
+                        # DEBUG
+                        # print("{} <> {}".format(std.get_param('_personal_id'), personal_id))
                         if int(std.get_param('_personal_id')) == personal_id:
                             print("ERROR: personal id is already exists: {}. Please reenter.".format(personal_id))
                             personal_id = None
