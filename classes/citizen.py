@@ -12,7 +12,7 @@ class Citizen(Human):
             if len(str(personal_id)) != 9:
                 raise TypeError("ERROR: personal id must contain 9 digits: {}".format(personal_id))
             else:
-                personal_id = int(personal_id)
+                # personal_id = int(personal_id)
                 return personal_id
         else:
             raise TypeError("ERROR: personal id must contain digits only: {}".format(personal_id))

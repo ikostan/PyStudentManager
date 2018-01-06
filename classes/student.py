@@ -34,7 +34,7 @@ class Student(Citizen):
             if len(str(student_id)) != 9:
                 raise TypeError("ERROR: student id must contain 9 digits: {}".format(student_id))
             else:
-                student_id = int(student_id)
+                # student_id = int(student_id)
                 return student_id
         else:
             raise TypeError("ERROR: student id must contain digits only: {}".format(student_id))
