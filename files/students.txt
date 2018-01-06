@@ -9,4 +9,3 @@ _first_name: fdgdfg; _last_name: fgdfgdfg; _student_id: 652456345; _personal_id:
 _first_name: ssdfgdf; _last_name: tryrtu; _student_id: 987654320; _personal_id: 182475100; _gender: n/a
 _first_name: Kim; _last_name: Chin; _gender: unknown; _personal_id: 272456624; _student_id: 356856567
 _first_name: Shon; _last_name: Chong; _gender: unknown; _personal_id: 879283792; _student_id: 456456546
-_first_name: Dfgd; _last_name: Sdfsdf; _gender: unknown; _personal_id: 234440; _student_id: 234567
