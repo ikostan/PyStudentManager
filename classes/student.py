@@ -9,14 +9,16 @@ class Student(Citizen):
         # first_name: str, last_name: str, gender: str, personal_id: int
         super().__init__(kwargs.get('_first_name'),
                          kwargs.get('_last_name'),
-                         kwargs.get('_gender'),
-                         kwargs.get('personal_id'))
+                         kwargs.get('_personal_id'),
+                         kwargs.get('_gender'))
+
         for key in kwargs.keys():
-            if key != '_first_name' and key != '_last_name' and key != '_id' and key != '_gender':
+            if key == '_student_id':
                 if kwargs.get(key) is not None:
                     # DEBUG:
                     # print('Student constructor: {} > {}'.format(key, kwargs.get(key)))
-                    self.__dict__.__setitem__(key, kwargs.get(key))
+                    # self.__dict__.__setitem__(key, kwargs.get(key))
+                    self._student_id = self.set_student_id(kwargs.get('_student_id'))
                 else:
                     raise TypeError("Value can not be None: {}".format(key))
 

@@ -2,12 +2,12 @@
 
 
 class Human:
-    def __init__(self, first_name: str, last_name: str, gender: str):
+    def __init__(self, first_name: str, last_name: str, gender=None):
         self._first_name = self.set_name(first_name)
         self._last_name = self.set_name(last_name)
         self._gender = self.set_gender(gender)
 
-    def set_gender(self, gender: str):
+    def set_gender(self, gender=None):
         if gender == 'Male' or gender == 'male':
             self._gender = 'male'
         elif gender == 'Female' or gender == 'female':

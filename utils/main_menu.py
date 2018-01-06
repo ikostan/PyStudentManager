@@ -19,7 +19,9 @@ class Menu:
                 std = self.register_student()
                 self._students.append(std)
                 print("Register a new student...")
-                FileManager.write_file('students.txt', std)
+                time.sleep(1)
+                FileManager.write_file(r'files\students.txt', std)
+                print("Done.")
             elif user_input == 'f' or user_input == 'F':
                 self.find_student()
             elif user_input == 'p' or user_input == 'P':
@@ -34,6 +36,7 @@ class Menu:
         first_name = None
         last_name = None
         student_id = None
+        personal_id = None
 
         while first_name is None:
             print('Please enter student first name:')
@@ -85,7 +88,33 @@ class Menu:
                     if is_doubled is False:
                         std_data['_student_id'] = student_id
 
+        while personal_id is None:
+            print('Please enter personal id:')
+            personal_id = input()
+            if len(personal_id) != 9:
+                print("ERROR: personal id must contain 9 digits. Please reenter.")
+                personal_id = None
+            else:
+                if personal_id.isalpha():
+                    print("ERROR: personal id must contain digits only. Please reenter.")
+                    personal_id = None
+                else:
+                    personal_id = int(personal_id)
+                    is_doubled = False
+                    for std in self._students:
+                        # print(std)
+                        # print("{} <> {}".format(std.get_param('_student_id'), student_id))
+                        if int(std.get_param('_personal_id')) == personal_id:
+                            print("ERROR: personal id is already exists: {}. Please reenter.".format(personal_id))
+                            personal_id = None
+                            is_doubled = True
+
+                    if is_doubled is False:
+                        std_data['_personal_id'] = personal_id
+
         try:
+            # DEBUG:
+            print(std_data)
             return Student(std_data)
         except Exception as e:
             print(e)

@@ -3,18 +3,16 @@ from classes.human import Human
 
 
 class Citizen(Human):
-    def __init__(self, first_name: str, last_name: str, gender: str, personal_id: int):
+    def __init__(self, first_name: str, last_name: str, personal_id: int, gender=None):
         super().__init__(first_name, last_name, gender)
         self._personal_id = self.set_personal_id(personal_id)
 
     def set_personal_id(self, personal_id: int):
-        if personal_id.isnumeric():
-            if len(str(personal_id)) == 9:
-                return int(personal_id)
-            else:
-                raise TypeError("ERROR: id must contain 9 digits: {}".format(personal_id))
+        if len(str(personal_id)) != 9:
+            raise TypeError("ERROR: personal id must contain 9 digits: {}".format(personal_id))
         else:
-            raise TypeError("ERROR: id must contain 9 digits: {}".format(personal_id))
+            personal_id = int(personal_id)
+            return personal_id
 
     def get_personal_id(self):
         return self._personal_id
