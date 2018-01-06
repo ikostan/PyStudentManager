@@ -6,7 +6,7 @@ from utils.file_manager import FileManager
 def main():
     print("Testing program: Student registration\n")
 
-    students = FileManager.read_file('students.txt')
+    students = FileManager.read_file(r'files\students.txt')
 
     '''
     # DEBUG:
