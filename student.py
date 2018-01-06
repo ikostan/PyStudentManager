@@ -1,16 +1,20 @@
 #!/usr/div/env python3
+from person import Person
 
 
-class Student:
+class Student(Person):
 
     def __init__(self, kwargs):
         # print('Student constructor #1 called')
+        # first_name: str, last_name: str, gender: str, id: int
+        super().__init__(kwargs.get('_first_name'), kwargs.get('_last_name'), kwargs.get('_gender'), kwargs.get('_id'))
         for key in kwargs.keys():
-            if kwargs.get(key) is not None:
-                #print('Student constructor: {} > {}'.format(key, kwargs.get(key)))
-                self.__dict__.__setitem__(key, kwargs.get(key))
-            else:
-                raise TypeError("Value can not be None: {}".format(key))
+            if key != '_first_name' and key != '_last_name' and key != '_id' and key != '_gender':
+                if kwargs.get(key) is not None:
+                    #print('Student constructor: {} > {}'.format(key, kwargs.get(key)))
+                    self.__dict__.__setitem__(key, kwargs.get(key))
+                else:
+                    raise TypeError("Value can not be None: {}".format(key))
 
     '''
     def __init__(self, first_name: str, last_name: str, student_id: int):
@@ -36,33 +40,21 @@ class Student:
                 data = '{}; {}: {}'.format(data, k, str(self.__dict__.get(k)))
         return data
 
-    @staticmethod
-    def set_name(name):
-        if len(name) < 2:
-            raise TypeError("ERROR: name must be at least 2 chars long: {}".format(name))
-        else:
-            if not name.isalpha():
-                raise TypeError("ERROR: name must contain alphabetic chars only: {}".format(name))
-            else:
-                new_name = name[0].upper() + name[1:]
-                # print('Debug >>> set_name: {}'.format(new_name))
-                return new_name
-
-    @staticmethod
-    def set_student_id(student_id):
+    def set_student_id(self, student_id: int):
         if len(str(student_id)) != 9:
             raise TypeError("ERROR: student id must contain 9 digits: {}".format(student_id))
         else:
             student_id = int(student_id)
             return student_id
-
-    def set_initial_data(self, first_name: str, last_name: str, student_id: int):
+    '''
+        def set_initial_data(self, first_name: str, last_name: str, student_id: int):
         if first_name is not None and last_name is not None and student_id is not None:
             self.set_param('_first_name', self.set_name(first_name.strip()))
             self.set_param('_last_name', self.set_name(last_name.strip()))
             self.set_param('_student_id', self.set_student_id(student_id))
         else:
             raise TypeError("Value can not be None")
+    '''
 
     def get_keys(self):
         #print(self.__dict__)
