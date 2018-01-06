@@ -1,8 +1,8 @@
 #!/usr/div/env python3
-from person import Person
+from citizen import Citizen
 
 
-class Student(Person):
+class Student(Citizen):
 
     def __init__(self, kwargs):
         # print('Student constructor #1 called')
