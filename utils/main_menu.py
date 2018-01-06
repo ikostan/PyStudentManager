@@ -71,10 +71,7 @@ class Menu:
                 print("ERROR: student id must contain 9 digits. Please reenter.")
                 student_id = None
             else:
-                if student_id.isalpha():
-                    print("ERROR: student id must contain digits only. Please reenter.")
-                    student_id = None
-                else:
+                try:
                     student_id = int(student_id)
                     is_doubled = False
                     for std in self._students:
@@ -87,6 +84,10 @@ class Menu:
 
                     if is_doubled is False:
                         std_data['_student_id'] = student_id
+                except Exception as e:
+                    print("ERROR: student id must contain digits only. Please reenter.")
+                    print(e)
+                    student_id = None
 
         while personal_id is None:
             print('Please enter personal id:')
@@ -95,10 +96,7 @@ class Menu:
                 print("ERROR: personal id must contain 9 digits. Please reenter.")
                 personal_id = None
             else:
-                if personal_id.isalpha():
-                    print("ERROR: personal id must contain digits only. Please reenter.")
-                    personal_id = None
-                else:
+                try:
                     personal_id = int(personal_id)
                     is_doubled = False
                     for std in self._students:
@@ -111,7 +109,10 @@ class Menu:
 
                     if is_doubled is False:
                         std_data['_personal_id'] = personal_id
-
+                except Exception as e:
+                    print("ERROR: personal id must contain digits only. Please reenter.")
+                    print(e)
+                    personal_id = None
         try:
             # DEBUG:
             print(std_data)

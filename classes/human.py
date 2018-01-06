@@ -7,6 +7,15 @@ class Human:
         self._last_name = self.set_name(last_name)
         self._gender = self.set_gender(gender)
 
+    def __str__(self):
+        data = None
+        for k in self.__dict__:
+            if data is None:
+                data = '{}: {}'.format(k, str(self.__dict__.get(k)))
+            else:
+                data = '{}; {}: {}'.format(data, k, str(self.__dict__.get(k)))
+        return data
+
     def set_gender(self, gender=None):
         if gender == 'Male' or gender == 'male':
             self._gender = 'male'

@@ -8,11 +8,14 @@ class Citizen(Human):
         self._personal_id = self.set_personal_id(personal_id)
 
     def set_personal_id(self, personal_id: int):
-        if len(str(personal_id)) != 9:
-            raise TypeError("ERROR: personal id must contain 9 digits: {}".format(personal_id))
+        if str(personal_id).isnumeric():
+            if len(str(personal_id)) != 9:
+                raise TypeError("ERROR: personal id must contain 9 digits: {}".format(personal_id))
+            else:
+                personal_id = int(personal_id)
+                return personal_id
         else:
-            personal_id = int(personal_id)
-            return personal_id
+            raise TypeError("ERROR: personal id must contain digits only: {}".format(personal_id))
 
     def get_personal_id(self):
         return self._personal_id
