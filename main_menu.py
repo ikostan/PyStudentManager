@@ -120,7 +120,7 @@ class Menu:
         std_list = []
         if search_param == 1:
             for std in self._students:
-                # print('Search by first_name')
+                print('Search by first_name: {} -> {}'.format(param, std.get_param('_first_name')))
                 if std.get_param('_first_name') == param:
                     std_list.append(std)
         elif search_param == 2:

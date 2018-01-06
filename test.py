@@ -7,6 +7,10 @@ def main():
     print("Testing program: Student registration\n")
 
     students = FileManager.read_file('students.txt')
+
+    for std in students:
+        print(std)
+
     menu = Menu(students)
     menu.main_menu()
 
