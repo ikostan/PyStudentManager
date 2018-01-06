@@ -56,28 +56,3 @@ class Student(Person):
             raise TypeError("Value can not be None")
     '''
 
-    def get_keys(self):
-        #print(self.__dict__)
-        return self.__dict__.keys()
-
-    def get_values(self):
-        return self.__dict__.values()
-
-    def get_items(self):
-        return self.__dict__.items()
-
-    def get_param(self, key):
-        return self.__dict__.get(key)
-
-    def set_param(self, key, value):
-        if value is not None:
-            self.__dict__.__setitem__(key, value)
-        else:
-            raise TypeError("Value can not be None: {}".format(key))
-
-    def set_params(self, **kwargs):
-        for key in kwargs:
-            if kwargs.get(key) is not None:
-                self.__dict__.__setitem__(key, kwargs.get(key))
-            else:
-                raise TypeError("Value can not be None: {}".format(key))
