@@ -2,6 +2,7 @@
 from classes.student import Student
 import time
 from utils.file_manager import FileManager
+from utils.printer import Printer
 
 
 class Menu:
@@ -25,7 +26,11 @@ class Menu:
             elif user_input == 'f' or user_input == 'F':
                 self.find_student()
             elif user_input == 'p' or user_input == 'P':
-                self.print_all_students()
+                printer = Printer(self._students)
+                # self.print_all_students()
+                printer.show_printer_menu()
+                printer.print_sorted_list(printer.get_user_input())
+                self.main_menu()
             else:
                 print("Exiting program...")
                 time.sleep(1)
